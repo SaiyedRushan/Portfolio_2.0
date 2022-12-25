@@ -18,10 +18,12 @@ function Header({}: Props) {
         <SocialIcon
           url="https://www.linkedin.com/in/rushanshahsaiyed/"
           fgColor="gray"
+          target="_blank"
           bgColor="transparent"
         ></SocialIcon>
         <SocialIcon
           url="https://github.com/SaiyedRushan"
+          target="_blank"
           fgColor="gray"
           bgColor="transparent"
         ></SocialIcon>
