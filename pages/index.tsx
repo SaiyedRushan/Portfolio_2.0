@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import About from "../components/About";
@@ -8,8 +7,7 @@ import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import ContactMe from "../components/ContactMe";
 import Link from "next/link";
-
-const inter = Inter({ subsets: ["latin"] });
+import { useState } from "react";
 
 export default function Home() {
   return (
@@ -48,7 +46,7 @@ export default function Home() {
 
         <Link href="#hero" scroll={true}>
           <footer className="sticky bottom-5 w-full cursor-pointer">
-            <div className="flex items-center justify-center">
+            <div className="flex items-end justify-end mr-10">
               <img
                 src="https://img.icons8.com/ios-filled/512/collapse-arrow.png"
                 className="h-10 w-10 rounded-full fliter grayscale hover:grayscale-0"

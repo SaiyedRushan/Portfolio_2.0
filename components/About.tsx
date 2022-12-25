@@ -13,6 +13,7 @@ function About({}: Props) {
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl ">
         About
       </h3>
+
       <motion.img
         initial={{
           x: -200,
@@ -25,7 +26,7 @@ function About({}: Props) {
         viewport={{ once: true }}
         transition={{ duration: 1.2 }}
         src="https://media.licdn.com/dms/image/C4D03AQHa062g_4JyAw/profile-displayphoto-shrink_200_200/0/1648745664565?e=1677110400&v=beta&t=P9tVJ-tAAUoJOBOm_3kYfceFIWCknG4lHJDvpSuK70A"
-        className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
+        className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-64 xl:w-[450px] xl:h-[500px]"
       />
 
       <div className="space-y-10 px-0 md:px-10">

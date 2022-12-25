@@ -7,7 +7,7 @@ function Projects({}: Props) {
 
   return (
     <motion.div className="h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0">
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-16 uppercase tracking-[20px] text-gray-500 text-2xl">
         Projects
       </h3>
 
@@ -23,6 +23,7 @@ function Projects({}: Props) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               src="https://saiyedrushan.github.io/PortfolioWebsite/images/git_info2.jpg"
+              className="max-h-[350px]"
             />
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-4-xl font-semibold text-center">
