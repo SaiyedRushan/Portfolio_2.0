@@ -6,7 +6,7 @@ function Projects({}: Props) {
   const project1 = {
     name: "Portfolio Website",
     description: "Designed a personal portfolio website using HTML and CSS.",
-    imglink: "%PUBLIC_URL%/Portfolio.png",
+    imglink: "./Portfolio.png",
     links: [
       "https://github.com/SaiyedRushan/PortfolioWebsite",
       "https://saiyedrushan.github.io/PortfolioWebsite/",
@@ -43,7 +43,7 @@ function Projects({}: Props) {
     name: "Other Projects",
     description:
       "Checkout my other projects along with this portfolio project on my github.",
-    imglink: "%PUBLIC_URL%/Git.png",
+    imglink: "./Git.png",
     links: ["https://github.com/SaiyedRushan/"],
   };
 
