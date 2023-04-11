@@ -80,7 +80,7 @@ function Projects({}: Props) {
 
                 {project.links.map((link, i) => {
                   return (
-                    <span className="text-sm">
+                    <span className="text-sm" key={i}>
                       <a href={link} className="underline hover:text-green-500">
                         {link}
                       </a>

@@ -38,7 +38,7 @@ function ExperienceCard({
 
         <ul className="list-disc space-y-4 ml-5 text-sm">
           {description.map((desc, i) => {
-            return <li>{desc}</li>;
+            return <li key={i}>{desc}</li>;
           })}
         </ul>
       </div>

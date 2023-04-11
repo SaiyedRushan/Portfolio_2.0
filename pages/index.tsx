@@ -7,7 +7,6 @@ import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import ContactMe from "../components/ContactMe";
 import Link from "next/link";
-import { useState } from "react";
 
 export default function Home() {
   return (

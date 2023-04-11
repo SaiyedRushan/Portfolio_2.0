@@ -2,9 +2,12 @@ import React, { useRef } from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
 import Link from "next/link";
+
 type Props = {};
 
 function Hero({}: Props) {
+  const imageURL = "/Portfolio_2.0/profilePicture.jpeg";
+
   const [text, count] = useTypewriter({
     words: ["Hey, Name's Saiyed", "Rushanshah Saiyed", "Welcome!"],
     loop: true,
@@ -15,7 +18,7 @@ function Hero({}: Props) {
       <BackgroundCircles />
       <img
         className="relative rounded-full h-32 w-32 mx-auto object-cover"
-        src="/portfolio.jpeg"
+        src={imageURL}
         alt=""
       />
       <div className="z-20">

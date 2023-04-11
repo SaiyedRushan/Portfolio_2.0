@@ -1,8 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+
 type Props = {};
 
 function About({}: Props) {
+  const imageURL = "/Portfolio_2.0/linkedin.jpeg";
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -25,7 +28,7 @@ function About({}: Props) {
         }}
         viewport={{ once: true }}
         transition={{ duration: 1.2 }}
-        src="/portfolio.jpeg"
+        src={imageURL}
         className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-64 xl:w-[450px] xl:h-[500px]"
       />
 
