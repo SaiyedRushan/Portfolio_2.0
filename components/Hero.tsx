@@ -6,7 +6,7 @@ import Link from "next/link";
 type Props = {};
 
 function Hero({}: Props) {
-  const imageURL = "/Portfolio_2.0/profilePicture.jpeg";
+  const imageURL = "/Portfolio_2.0/linkedin.jpg";
 
   const [text, count] = useTypewriter({
     words: ["Hey, Name's Saiyed", "Rushanshah Saiyed", "Welcome!"],

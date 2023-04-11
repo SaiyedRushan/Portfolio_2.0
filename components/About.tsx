@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 type Props = {};
 
 function About({}: Props) {
-  const imageURL = "/Portfolio_2.0/linkedin.jpeg";
+  const imageURL = "/Portfolio_2.0/profilePicture.jpeg";
 
   return (
     <motion.div
