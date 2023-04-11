@@ -1,37 +1,50 @@
-Welcome to my portfolio website built primarily using React, Next, and Typescript.
-Access it here (https://saiyedrushan.github.io/Portfolio_2.0/)
+# Portfolio 2.0
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is the second version of my personal portfolio website, built using modern web development tools and frameworks. The website showcases my skills, projects, and experiences, and serves as a platform to connect with potential employers, clients, and collaborators.
+
+## Technologies Used
+
+The portfolio website is built using the following technologies:
+
+- React: A popular JavaScript library for building user interfaces
+- Next.js: A framework for building server-side rendered React applications
+- Tailwind CSS: A utility-first CSS framework for building responsive and customizable UIs
+- Framer Motion: A library for adding fluid animations and transitions to React components
+- Vercel: A cloud platform for deploying and hosting web applications
+
+## Features
+
+The portfolio website includes the following features:
+
+- Home page with a hero section, skills section, and about section
+- Projects page with a grid of featured projects and a filterable project list
+- Blog page with a list of blog posts and a blog post reader
+- Contact page with a contact form and social media links
+- Mobile-responsive design with adaptive layout and optimized performance
+- Smooth animations and transitions using Framer Motion
 
 ## Getting Started
 
-First, run the development server:
+To run the portfolio website locally, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+1. Clone the repository to your local machine using Git or GitHub Desktop.
+2. Install the required dependencies by running `npm install` or `yarn install`.
+3. Start the development server by running `npm run dev` or `yarn dev`.
+4. Open your web browser and go to `http://localhost:3000` to view the website.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+The portfolio website is hosted on Vercel, a cloud platform for deploying and hosting web applications. To deploy the website, follow these steps:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Create an account on Vercel and connect it to your Git repository.
+2. Configure the deployment settings, including the branch to deploy and environment variables.
+3. Trigger a deployment by pushing changes to the configured branch or manually triggering a deployment in the Vercel dashboard.
+4. Wait for the deployment to complete, and view the live website at the assigned URL.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Contributing
 
-## Learn More
+If you would like to contribute to the portfolio website, you can fork the repository, make your changes, and submit a pull request. Please make sure your changes follow the coding standards and best practices, and provide clear documentation and tests where appropriate.
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This repository is licensed under the MIT License. See the `LICENSE` file for more information.
