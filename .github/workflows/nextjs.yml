@@ -72,7 +72,7 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         env:
-          REACT_APP_IMAGE_URL: ${{ vars.REACT_APP_IMAGE_URL }}
+          REACT_APP_IMAGE_URL: ${{ env.REACT_APP_IMAGE_URL }}
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
