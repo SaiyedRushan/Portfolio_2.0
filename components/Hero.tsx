@@ -6,12 +6,12 @@ import Link from "next/link";
 type Props = {};
 
 function Hero({}: Props) {
-  const imageURL = "/Portfolio_2.0/linkedin.jpg";
+  const imageURL = process.env.REACT_APP_IMAGE_URL;
 
   const [text, count] = useTypewriter({
-    words: ["Hey, Name's Saiyed", "Rushanshah Saiyed", "Welcome!"],
+    words: ["Hey, Name's Saiyed", "Rushanshah Saiyed", "Welcome!", "السلام"],
     loop: true,
-    delaySpeed: 2000,
+    delaySpeed: 1000,
   });
   return (
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
