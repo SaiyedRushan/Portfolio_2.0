@@ -75,6 +75,7 @@ jobs:
       - name: Build with Next.js
         env:
           REACT_APP_IMAGE_URL: "/Portfolio_2.0/linkedin.jpg"
+          REACT_APP_PROFILE_URL: "/Portfolio_2.0/profilePicture.jpeg"
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Static HTML export with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next export

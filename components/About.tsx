@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 type Props = {};
 
 function About({}: Props) {
-  const imageURL = "/Portfolio_2.0/profilePicture.jpeg";
+  const imageURL = process.env.REACT_APP_PROFILE_URL;
 
   return (
     <motion.div
@@ -35,19 +35,32 @@ function About({}: Props) {
       <div className="space-y-10 px-0 md:px-10">
         <h4 className="text-4xl font-semibold">
           Here is a{" "}
-          <span className="underline decoration-[#F7AB0A]/50">little</span>{" "}
+          <span className="underline decoration-[#F7AB0A]/50 text-sm">
+            little
+          </span>{" "}
           background
         </h4>
         <p className="text-base">
-          I'm a fourth year computer engineering student at York University
-          graduating by May 2023. I love building and trying new things out. I
-          am a quick learner and I like playing with new technologies. I am well
-          versed in java and python and I'm interested in full-stack software
-          development as well as data engineering. I've studied the technologies
-          and have learned the skills required for these roles. I think I am
-          more than ready to start a career in either of these roles and I would
-          like a chance to prove how my skills, passion, and hardwork could be
-          of value to your company.
+          Hello 👋, I'm Rushan. As a dedicated and self-motivated Software
+          Engineer, I possess a versatile skill set and a strong desire to learn
+          and grow within the field of software development. I have experience
+          working with a variety of programming languages and software
+          development practices, and I am committed to expanding my knowledge
+          and skills in these areas. <br />
+          <br />
+          My software stack includes several programming languages, including
+          Java, Python, and JavaScript, as well as libraries and frameworks such
+          as Vue.js, Vuetify, React.js, and Express.js. I am also proficient in
+          SQL Server, Jest, Docker, Git, and Linux. Through my experience with
+          these technologies, I have gained valuable insights into software
+          development best practices and effective project management
+          techniques. <br />
+          <br />
+          As a lifelong learner, I am always seeking opportunities to improve my
+          skills and stay up-to-date with the latest trends and developments in
+          the field of software engineering. I believe that my passion for
+          software development, coupled with my strong work ethic and commitment
+          to excellence, make me a valuable asset to any team.
         </p>
       </div>
     </motion.div>
