@@ -17,7 +17,7 @@ export default function Home() {
           <link rel="icon" href="./RS_Favicon.png" />
         </Head>
 
-        <Header />
+        <Header isBlog={false} />
 
         <section id="hero" className="snap-start">
           <Hero />

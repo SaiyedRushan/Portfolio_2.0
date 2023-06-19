@@ -1,12 +1,15 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import HomeIcon from "@mui/icons-material/Home";
+import { Heading, color } from "@chakra-ui/react";
 
-type Props = {};
+type Props = {
+  isBlog: boolean;
+};
 
-function Header({}: Props) {
+function Header({ isBlog }: Props) {
   return (
     <header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
       <motion.div
@@ -27,7 +30,30 @@ function Header({}: Props) {
           fgColor="gray"
           bgColor="transparent"
         ></SocialIcon>
+
+        {!isBlog && (
+          <Link href="/blogs">
+            <p className="uppercase md:inline-flex text-sm text-gray-400 p-3">
+              Blog
+            </p>
+          </Link>
+        )}
+
+        {isBlog && (
+          <Link href="/">
+            <div className="p-3">
+              <HomeIcon style={{ color: "gray" }} />
+            </div>
+          </Link>
+        )}
       </motion.div>
+
+      {isBlog && (
+        <Heading size={"md"} className="hidden md:inline-flex">
+          {" "}
+          My Blogs{" "}
+        </Heading>
+      )}
 
       <motion.div
         initial={{ x: 500, opacity: 0, scale: 0.5 }}
@@ -41,7 +67,7 @@ function Header({}: Props) {
           fgColor="gray"
           bgColor="transparent"
         />
-        <Link href="#contact">
+        <Link href="/#contact">
           <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
             Get in touch
           </p>
