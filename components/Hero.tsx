@@ -2,24 +2,26 @@ import React, { useRef } from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
 import Link from "next/link";
-
+import Image from "next/image";
+import linkedin from "../public/linkedin.jpg";
 type Props = {};
 
 function Hero({}: Props) {
-  const imageURL = process.env.REACT_APP_IMAGE_URL;
-
   const [text, count] = useTypewriter({
     words: ["Hey, Name's Saiyed", "Rushanshah Saiyed", "Welcome!", "السلام"],
     loop: true,
     delaySpeed: 1000,
   });
+
   return (
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
       <BackgroundCircles />
-      <img
+      <Image
         className="relative rounded-full h-32 w-32 mx-auto object-cover"
-        src={imageURL}
-        alt=""
+        src={linkedin}
+        alt="profile picture"
+        width={250}
+        height={250}
       />
       <div className="z-20">
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">

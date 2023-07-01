@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { fetchDynamoDbRecord } from "../../server/dynamodb";
+import Header from "../../components/Header";
+import { Heading } from "@chakra-ui/react";
 
 type Props = {};
 type Blog = {
@@ -27,9 +29,17 @@ function BlogPage({}: Props) {
 
   return (
     <div>
-      <h1 className="mx-auto p-3">{blog?.Title}</h1>
-      <p>{blog?.Description}</p>
-      <p>{blog?.Content}</p>
+      <Header isBlog={false} />
+
+      <div className="overflow-auto w-8/12 mx-auto">
+        <Heading className="py-7">{blog?.Title}</Heading>
+
+        <img src={blog?.ImageURL} alt="" className="pb-6" width={500} />
+
+        <p className="pb-6">{blog?.Description}</p>
+
+        <p>{blog?.Content}</p>
+      </div>
     </div>
   );
 }

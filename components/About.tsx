@@ -1,11 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import profilePicture from "../public/profilePicture.jpeg";
 type Props = {};
 
 function About({}: Props) {
-  const imageURL = process.env.REACT_APP_PROFILE_URL;
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -28,7 +26,7 @@ function About({}: Props) {
         }}
         viewport={{ once: true }}
         transition={{ duration: 1.2 }}
-        src={imageURL}
+        src={profilePicture.src}
         className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-64 xl:w-[450px] xl:h-[500px]"
       />
 

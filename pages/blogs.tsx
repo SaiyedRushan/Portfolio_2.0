@@ -48,6 +48,7 @@ export default function Blogs({}: Props) {
       <div className="flex flex-col px-8 md:px-28">
         {blogs.map((blog, i) => (
           <Box
+            key={i}
             as="button"
             _hover={{ cursor: "pointer", boxShadow: "lg" }}
             onClick={() => routeToBlog(blog.BlogID, blog.Title)}
