@@ -29,9 +29,9 @@ function BlogPage({}: Props) {
 
   return (
     <div>
-      <Header isBlog={false} />
+      <Header isBlog={false} isBlogPage={true} />
 
-      <div className="overflow-auto w-8/12 mx-auto">
+      <div className="overflow-auto w-8/12 mx-auto mb-60">
         <Heading className="py-7">{blog?.Title}</Heading>
 
         <img src={blog?.ImageURL} alt="" className="pb-6" width={500} />
