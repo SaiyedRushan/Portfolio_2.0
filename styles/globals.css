@@ -12,4 +12,21 @@
         @apply outline-none bg-slate-400/10 rounded-sm border-b px-6 py-6 border-[#242424]
          text-gray-500 placeholder-gray-500 transition-all focus:text-[#008000]/40 hover:border-[#008000]/40
     }
+
+    .card-gradient {
+        overflow: hidden;
+        color: black;
+    }
+
+    .card-gradient::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(https://grainy-gradients.vercel.app/noise.svg);
+        opacity: 0.8; 
+        pointer-events: none;
+    }
 }

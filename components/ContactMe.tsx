@@ -6,7 +6,7 @@ type Props = {}
 function ContactMe({}: Props) {
   return (
     <div className='h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center'>
-      <h3 className='absolute top-16 uppercase tracking-[20px] text-gray-500 text-2xl'>Contact</h3>
+      <h3 className='absolute top-24 sm:top-16 uppercase tracking-[20px] text-gray-500 text-2xl'>Contact</h3>
 
       <div className='flex flex-col space-y-5 mt-9'>
         <h4 className='text-2xl font-semibold text-center'>
@@ -24,16 +24,13 @@ function ContactMe({}: Props) {
           </div>
         </div>
 
-        <form className='flex flex-col space-y-2 w-fit mx-auto'>
-          <div className='flex space-x-2'>
+        <form className='flex flex-col space-y-2 w-4/5 sm:w-fit mx-auto'>
+          <div className='flex sm:space-x-2 w-full flex-wrap gap-2'>
             <input type='text' className='contactInput' placeholder='Name' />
             <input type='email' className='contactInput' placeholder='Email' />
           </div>
-
           <input type='text' className='contactInput' placeholder='Subject' />
-
           <textarea className='contactInput' placeholder='Message' />
-
           <button type='submit' className='bg-[#008000] py-5 px-10 rounded-md text-black font-bold text-lg'>
             Submit
           </button>
