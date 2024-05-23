@@ -15,10 +15,10 @@ function Projects() {
   }
 
   return (
-    <motion.div className='h-screen pt-10 flex flex-col overflow-hidden text-left max-w-full justify-evenly mx-auto items-center '>
+    <motion.div className='h-screen pt-10 flex flex-col overflow-hidden text-left max-w-full justify-evenly mx-auto items-center'>
       <h3 className='uppercase tracking-[20px] text-gray-500 text-2xl'>Projects</h3>
 
-      <div className='flex gap-3 flex-wrap mx-10 max-h-[150px] overflow-auto mt-0'>
+      <div className='flex gap-3 flex-wrap mx-10 max-h-[150px] overflow-auto mt-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#008000]/80'>
         {techs.map((item, idx) => {
           return (
             <Button key={idx} colorScheme='green' variant={activeFilter == item ? "outline" : "solid"} onClick={() => handleClick(item)}>
@@ -28,12 +28,12 @@ function Projects() {
         })}
       </div>
 
-      <div className='flex gap-3 flex-wrap justify-center w-full h-[400px] overflow-y-auto'>
+      <div className='flex gap-3 flex-wrap justify-center w-5/6 h-[400px] overflow-y-auto scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#008000]/80'>
         {projects
           .filter((project) => (activeFilter != "all" ? project.tags.includes(activeFilter) : true))
           .map((project, idx) => {
             return (
-              <Card key={idx} maxWidth='300px' maxHeight='400px' className='overflow-y-auto card-gradient'>
+              <Card key={idx} maxWidth='300px' maxHeight='400px' className='overflow-y-auto card-gradient scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#008000]/80'>
                 <CardBody>
                   <p className='text-xl font-bold'>{project.name}</p>
                   <p className='italic'>{project.description}</p>
