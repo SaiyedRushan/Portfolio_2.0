@@ -6,7 +6,7 @@ import projects from "../data/projects"
 import { GitHub } from "@mui/icons-material"
 
 function Projects() {
-  const techs = ["python", "java", "express", "react", "react-native", "next.js", "docker", "kubernetes", "aws", "golang", "c#"]
+  const techs = ["python", "java", "node", "react", "sql", "react-native", "next", "docker", "kubernetes", "aws", "golang", "c#", "mongo", "rabbitmq", "devops", "blockchain"]
   const [activeFilter, setActiveFilter] = useState("all")
 
   const handleClick = (item: string) => {
@@ -15,10 +15,10 @@ function Projects() {
   }
 
   return (
-    <motion.div className='h-screen mt-96 flex flex-col overflow-hidden text-left max-w-full justify-evenly mx-auto items-center '>
+    <motion.div className='h-screen pt-10 flex flex-col overflow-hidden text-left max-w-full justify-evenly mx-auto items-center '>
       <h3 className='uppercase tracking-[20px] text-gray-500 text-2xl'>Projects</h3>
 
-      <div className='flex gap-3 flex-wrap mx-10'>
+      <div className='flex gap-3 flex-wrap mx-10 max-h-[150px] overflow-auto mt-0'>
         {techs.map((item, idx) => {
           return (
             <Button key={idx} colorScheme='green' variant={activeFilter == item ? "outline" : "solid"} onClick={() => handleClick(item)}>
@@ -28,7 +28,7 @@ function Projects() {
         })}
       </div>
 
-      <div className='flex gap-3 flex-wrap justify-center w-full h-[400px] overflow-y-scroll'>
+      <div className='flex gap-3 flex-wrap justify-center w-full h-[400px] overflow-y-auto'>
         {projects
           .filter((project) => (activeFilter != "all" ? project.tags.includes(activeFilter) : true))
           .map((project, idx) => {
@@ -36,12 +36,14 @@ function Projects() {
               <Card key={idx} maxWidth='300px' maxHeight='400px' className='overflow-y-auto card-gradient'>
                 <CardBody>
                   <p className='text-xl font-bold'>{project.name}</p>
-                  <p>{project.description}</p>
+                  <p className='italic'>{project.description}</p>
                 </CardBody>
+
                 <CardFooter gap='2' className='pt-0'>
                   <a target='_blank' href={project.git}>
-                    <IconButton aria-label='git' icon={<GitHub />} />
+                    <IconButton aria-label='git' icon={<GitHub />} variant='outline' />
                   </a>
+
                   {project.deployment && (
                     <a target='_blank' href={project.deployment}>
                       <Button variant='outline' colorScheme='white'>

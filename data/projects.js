@@ -14,10 +14,25 @@ export default [
     deployment: "https://github.com/SaiyedRushan/ReactEcommerceMicroservice",
   },
   {
-    name: "Movie Database",
-    description: "Developed a movie database appllication using React, Spring Boot, and MongoDB. Hosted the backend using AWS Elastic Beanstalk and frontend on Vercel. Implemented responsive UI for seamless browsing.",
-    tags: "aws, react, java, spring, mongo",
-    git: "https://github.com/SaiyedRushan/react-springboot-movies-application",
+    name: "Terraform AWS",
+    description: `Automated the deployment of a web server on AWS using Terraform. Configured VPC, security groups, EC2 instance,
+    Elastic IP, and user data scripting, showcasing proficiency in end-to-end cloud provisioning and application deployment.`,
+    tags: "aws, terraform",
+    git: "https://github.com/SaiyedRushan/TerraformAWS",
+  },
+  {
+    name: "Video-to-Audio Flask Microservices",
+    description: `Designed and developed a highly scalable microservices-based video-to-audio conversion backend using Python (Flask),
+    MongoDB (GridFS), MySQL, RabbitMQ, Docker, and Kubernetes.`,
+    tags: "python, flask, sql, rabbitmq, docker, kubernetes, mongo",
+    git: "https://github.com/SaiyedRushan/FlaskMicroservicesKubernetes",
+  },
+  {
+    name: "E-commerce FastAPI microservices",
+    description: `Developed a robust e-commerce backend server using Python FastAPI implementing a microservices architecture for modularity and scalability. Utilized Redis for data storage and Redis Streams for asynchronous communication between
+    services.`,
+    tags: "python, fastapi, redis, react",
+    git: "https://github.com/SaiyedRushan/FastAPI_Microservices",
   },
   {
     name: "Django CRM",
@@ -39,5 +54,55 @@ export default [
     design, maintaining adherence to best practices.`,
     tags: "node, express, docker, kubernetes, mongo, kafka, redis, graphql, cicd, devops, aws",
     git: "https://github.com/SaiyedRushan/StaffingPlatformBackend",
+  },
+  {
+    name: "Budget Manager Mobile App",
+    description: `Crafted a sophisticated mobile budget management application leveraging React Native, SQLite, Typescript, and Expo.
+    Applied a local-first strategy for data management utilizing Expo File System, augmenting user interaction. Employed React
+    Native Gestures and Reanimated libraries ensuring an intuitive and engaging user experience.`,
+    tags: "react-native, sql",
+    git: "https://github.com/SaiyedRushan/BudgetBuddyReactNative",
+  },
+  {
+    name: "Uber Clone",
+    description: `Built a clone of the Uber app using React Native for cross-platform mobile development integrating Redux Toolkit
+    for state management, tailwindcss for styling, Expo 50 for building, and various Google Maps APIs for mapping and
+    location-based features.`,
+    tags: "react-native",
+    git: "https://github.com/SaiyedRushan/BudgetBuddyReactNative",
+  },
+  {
+    name: "Spring Boot Microservices",
+    description: `Developed a scalable, cloud-based microservices architecture using Spring Boot, Spring Cloud, Maven, RabbitMQ,
+    PostgreSQL, Docker, Eureka for service discovery, and Sleuth with Zipkin for distributed tracing.`,
+    tags: "java, spring, sql, docker, rabbitmq",
+    git: "https://github.com/SaiyedRushan/SpringMicroservices",
+  },
+
+  {
+    name: "Web 3.0 dApp",
+    description: `Built a Web 3.0 decentralized application (dApp) using React on the front-end and Solidity for smart contract development,
+    enabling user interaction with the blockchain network.`,
+    tags: "react, solidity, blockchain",
+    git: "https://github.com/SaiyedRushan/Krypton-Web3.0",
+  },
+  {
+    name: "Bookstore management Go",
+    description: `A CRUD backend REST API server created with Golang and MySQL.`,
+    tags: "golang, sql",
+    git: "https://github.com/SaiyedRushan/GoBookManagementSystem",
+  },
+  {
+    name: "Portfolio (this)",
+    description: `Portfolio website built using Next.js, Typescript, Tailwind-css and Chakra UI. Hosted on Vercel.`,
+    tags: "next, tailwind, react",
+    git: "https://github.com/SaiyedRushan/Portfolio_2.0",
+    deployment: "https://saiyedrushan.vercel.app/",
+  },
+  {
+    name: "Movie Database",
+    description: "Developed a movie database appllication using React, Spring Boot, and MongoDB. Hosted the backend using AWS Elastic Beanstalk and frontend on Vercel. Implemented responsive UI for seamless browsing.",
+    tags: "aws, react, java, spring, mongo",
+    git: "https://github.com/SaiyedRushan/react-springboot-movies-application",
   },
 ]

@@ -26,7 +26,7 @@
         width: 100%;
         height: 100%;
         background: url(https://grainy-gradients.vercel.app/noise.svg);
-        opacity: 0.8; 
+        opacity: 0.99; 
         pointer-events: none;
     }
 }
