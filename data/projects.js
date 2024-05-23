@@ -105,4 +105,10 @@ export default [
     tags: "aws, react, java, spring, mongo",
     git: "https://github.com/SaiyedRushan/react-springboot-movies-application",
   },
+  {
+    name: "Auctions .NET Web App",
+    description: ".NET Core MVC web app allowing users to bid on auctions and list items for auction.",
+    tags: "c#, .net",
+    git: "https://github.com/SaiyedRushan/Auction.net",
+  },
 ]
