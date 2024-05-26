@@ -94,7 +94,7 @@ export default [
   },
   {
     name: "Portfolio (this)",
-    description: `Portfolio website built using Next.js, Typescript, Tailwind-css and Chakra UI. Hosted on Vercel.`,
+    description: `Developed a dynamic portfolio website using Next.js, TypeScript, Tailwind CSS, and Chakra UI. Leveraged Static Site Generation (SSG) for enhanced SEO rankings and faster user experience. Integrated Contentful CMS SDK for blogging functionality. Hosted on Vercel for automated deployments.`,
     tags: "next, tailwind, react",
     git: "https://github.com/SaiyedRushan/Portfolio_2.0",
     deployment: "https://saiyedrushan.vercel.app/",
