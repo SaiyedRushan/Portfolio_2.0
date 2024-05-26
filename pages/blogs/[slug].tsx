@@ -54,18 +54,20 @@ interface PostProps {
 
 export default function Post({ post }: PostProps) {
   return (
-    <div className='flex flex-col gap-3 items-center'>
-      <Head>
-        <title>{post.fields.title as string}</title>
-      </Head>
+    <>
       <Header />
-      <h1>{post.fields.title as string}</h1>
-      <p suppressHydrationWarning>{new Date(post.fields.publishedDate as string).toLocaleDateString()}</p>
-      <p>{post.fields.shortDescription as string}</p>
-      <img src={`https://${post.fields.featuredImage?.fields?.file?.url}`} />
-      <div className='mx-10 my-2' suppressHydrationWarning>
-        {documentToReactComponents(post.fields.content as any, renderOptions)}
+      <div className='flex flex-col gap-3 items-center'>
+        <Head>
+          <title>{post.fields.title as string}</title>
+        </Head>
+        <h1>{post.fields.title as string}</h1>
+        <p suppressHydrationWarning>{new Date(post.fields.publishedDate as string).toLocaleDateString()}</p>
+        <p>{post.fields.shortDescription as string}</p>
+        <img src={`https://${post.fields.featuredImage?.fields?.file?.url}`} />
+        <div className='mx-5 my-2' suppressHydrationWarning>
+          {documentToReactComponents(post.fields.content as any, renderOptions)}
+        </div>
       </div>
-    </div>
+    </>
   )
 }

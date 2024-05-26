@@ -6,7 +6,7 @@ import { Home } from "@mui/icons-material"
 
 function Header() {
   return (
-    <header className='sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center'>
+    <header className='sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center bg-[rgb(36,36,36)]'>
       <motion.div initial={{ x: -500, opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }} transition={{ duration: 1.5 }} className='flex flex-row items-center gap-3'>
         <Link href='/' className='hover:shadow-lg hover:scale-125 transform transition-transform duration-300'>
           <Home className='text-gray-400'></Home>
