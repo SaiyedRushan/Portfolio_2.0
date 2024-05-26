@@ -1,5 +1,4 @@
 import Head from "next/head"
-import Header from "../components/Header"
 import Hero from "../components/Hero"
 import About from "../components/About"
 import WorkExperience from "../components/WorkExperience"
@@ -7,6 +6,7 @@ import Skills from "../components/Skills"
 import Projects from "../components/Projects"
 import ContactMe from "../components/ContactMe"
 import Link from "next/link"
+import Header from "../components/Header"
 
 export default function Home() {
   return (
@@ -16,6 +16,8 @@ export default function Home() {
           <title>Rushan's Portfolio</title>
           <link rel='icon' href='./RS_Favicon.png' />
         </Head>
+
+        <Header />
 
         <section id='hero' className='snap-start'>
           <Hero />

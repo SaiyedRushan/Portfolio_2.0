@@ -1,15 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from "next"
-import { fetchEntries, BlogPost, fetchEntry } from "../../lib/contentful"
+import { fetchEntries, fetchEntry } from "../../lib/contentful"
 import Head from "next/head"
 import safeJsonStringify from "safe-json-stringify"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types"
+import Header from "../../components/Header"
 
-export interface PostProps {
-  post: BlogPost
-}
-
-export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   let post = await fetchEntry(params?.slug as string)
   const stringifiedData = safeJsonStringify(post!)
   post = JSON.parse(stringifiedData)
@@ -26,7 +23,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const stringifiedData = safeJsonStringify(posts)
   posts = JSON.parse(stringifiedData)
 
-  const paths = posts.map((post) => ({
+  const paths = posts.map((post: any) => ({
     params: { slug: post.fields.slug as string },
   }))
 
@@ -38,7 +35,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 function renderEntry(node: any) {
   if (node.data.target.sys.contentType.sys.id === "videoEmbed") {
-    return <iframe src={node.data.target.fields.embedUrl} height='100%' width='100%' frameBorder='0' scrolling='no' title={node.data.target.fields.title} allowFullScreen={true} />
+    return <iframe src={node.data.target.fields.embedUrl} height='100%' width='100%' title={node.data.target.fields.title} allowFullScreen={true} />
   } else if (node.data.target.sys.contentType.sys.id === "componentRichImage") {
     return <img className='p-10' src={`https://${node.data.target.fields.image.fields?.file.url}`} height={node.data.target.fields.image.fields?.file.details.image.height} width={node.data.target.fields.image.fields?.file.details.image.width} alt={node.data.target.fields.image.fields.description} />
   }
@@ -51,22 +48,24 @@ const renderOptions = {
   },
 }
 
-function Post({ post }: PostProps) {
+interface PostProps {
+  post: any
+}
+
+export default function Post({ post }: PostProps) {
   return (
     <div className='flex flex-col gap-3 items-center'>
       <Head>
         <title>{post.fields.title as string}</title>
       </Head>
+      <Header />
       <h1>{post.fields.title as string}</h1>
       <p suppressHydrationWarning>{new Date(post.fields.publishedDate as string).toLocaleDateString()}</p>
       <p>{post.fields.shortDescription as string}</p>
       <img src={`https://${post.fields.featuredImage?.fields?.file?.url}`} />
-
       <div className='mx-10 my-2' suppressHydrationWarning>
         {documentToReactComponents(post.fields.content as any, renderOptions)}
       </div>
     </div>
   )
 }
-
-export default Post

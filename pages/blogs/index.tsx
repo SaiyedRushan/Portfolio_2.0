@@ -1,13 +1,10 @@
 import Link from "next/link"
 import { GetStaticProps } from "next"
-import { fetchEntries, BlogPost, BlogPostShort } from "../../lib/contentful"
+import { fetchEntries } from "../../lib/contentful"
 import safeJsonStringify from "safe-json-stringify"
+import Header from "../../components/Header"
 
-interface BlogProps {
-  posts: BlogPostShort[]
-}
-
-export const getStaticProps: GetStaticProps<BlogProps> = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   let posts = await fetchEntries()
   const stringifiedData = safeJsonStringify(posts)
   posts = JSON.parse(stringifiedData)
@@ -18,11 +15,12 @@ export const getStaticProps: GetStaticProps<BlogProps> = async () => {
   }
 }
 
-function Blog({ posts }: BlogProps) {
+export default function Blog({ posts }: { posts: any[] }) {
   return (
     <>
+      <Header />
       <h1 className='text-3xl text-center'>Blogs</h1>
-      <div className='flex flex-col gap-3 items-center  p-4'>
+      <div className='flex flex-col gap-3 items-center p-4'>
         <ul>
           {posts.map((post) => (
             <li key={post.fields.slug as string} className='my-5'>
@@ -37,5 +35,3 @@ function Blog({ posts }: BlogProps) {
     </>
   )
 }
-
-export default Blog
