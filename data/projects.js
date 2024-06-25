@@ -7,6 +7,14 @@ export default [
     deployment: "https://reportizeai-frontend.vercel.app/dashboard",
   },
   {
+    name: "Finance Dashboard",
+    description:
+      "Built a full-stack finance dashboard application using Python, Django REST Framework, React, Typescript, and PostgreSQL. Hosted the frontend on Vercel and backend on Render. Implemented custom CI/CD pipelines with Github Actions. Dockerized the application and created Kubernetes manifests for production deployment. Implemented CRON jobs and asynchronous task processing with Celery, Celery Beat, and Redis",
+    tags: "python, django, docker, kubernetes, sql, redis, react, devops",
+    git: "https://github.com/SaiyedRushan/henon-dashboard",
+    deployment: "https://henon-dashboard.vercel.app/",
+  },
+  {
     name: "Ecommerce Microservices",
     description: "Developed an ecommerce microservices backend using Python Django and Flask with MySQL, RabbitMQ for eventdriven interservice communication, and frontend with React, TypeScript, and Material UI. Containerized using Docker.",
     tags: "python, django, flask, sql, rabbitmq, react",
