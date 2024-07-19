@@ -1,5 +1,6 @@
 import React from "react"
 import { motion } from "framer-motion"
+import { TextGenerateEffect } from "./ui/text-generate"
 
 function About() {
   return (
@@ -10,13 +11,10 @@ function About() {
         <h4 className='text-4xl font-semibold'>
           Here is a <span className='underline decoration-[#AAFF00]/50 text-[25px]'>little</span> background
         </h4>
-        <p className='text-base'>
-          Experienced challenge hungry senior full stack software engineer adept in end-to-end development and project delivery from initial concept to final deployment, complemented by a strong ability to lead teams and projects and deliver high-quality user-centric solutions. <br />
-          <br />
-          Expertise in JavaScript, TypeScript, Vue.js, Vite, React.js, React Native, Python, Django, Flask, Spring Boot, Java, Golang, Next.js, Node.js, Express, Openshift, SQL Server, MongoDB, GraphQL, Jest, Docker, Kubernetes, RabbitMQ, Git. <br />
-          <br />
-          Familiar with microservices architecture. Additional expertise in backend development, DevOps practices, and cloud deployment and migration, including AWS, GCP, Terraform, and Linux
-        </p>
+
+        <TextGenerateEffect
+          words={`Experienced challenge hungry senior full stack software engineer adept in end-to-end development and project delivery from initial concept to final deployment, complemented by a strong ability to lead teams and projects and deliver high-quality user-centric solutions. \n Expertise in JavaScript, TypeScript, Vue.js, Vite, React.js, React Native, Python, Django, Flask, Spring Boot, Java, Golang, Next.js, Node.js, Express, Openshift, SQL Server, MongoDB, GraphQL, Jest, Docker, Kubernetes, RabbitMQ, Git. \n Familiar with microservices architecture. Additional expertise in backend development, DevOps practices, and cloud deployment and migration, including AWS, GCP, Terraform, and Linux`}
+        />
       </div>
     </motion.div>
   )

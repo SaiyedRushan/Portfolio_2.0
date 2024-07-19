@@ -22,7 +22,7 @@
     "clsx": "^2.1.1",
     "contentful": "^10.11.3",
     "dotenv": "^16.0.3",
-    "framer-motion": "^7.10.3",
+    "framer-motion": "^11.3.8",
     "next": "13.0.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
