@@ -41,15 +41,13 @@ export default function Home() {
           <ContactMe />
         </section>
 
-        <footer className='sticky bottom-5 w-full cursor-pointer'>
-          <div className='flex items-end justify-end mr-4'>
-            <Link href='#hero' scroll={true}>
-              <Button className='h-14 w-14 p-0 rounded-full'>
-                <ArrowUpCircleIcon className='h-10 w-10' fill='black' />
-              </Button>
-            </Link>
-          </div>
-        </footer>
+        <div className='fixed bottom-5 right-5 z-50'>
+          <Link href='#hero' scroll={true}>
+            <Button className='h-14 w-14 p-0 rounded-full '>
+              <ArrowUpCircleIcon className='h-10 w-10' fill='slate' />
+            </Button>
+          </Link>
+        </div>
       </div>
     </>
   )
