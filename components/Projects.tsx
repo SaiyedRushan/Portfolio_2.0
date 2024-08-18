@@ -19,8 +19,6 @@ function Projects() {
     VanillaTilt.init(elements, {
       max: 10,
       speed: 200,
-      // glare: true,
-      // "max-glare": 0.5,
     })
 
     return () => {
@@ -36,7 +34,7 @@ function Projects() {
     <motion.div className='h-screen pt-[15vh] flex flex-col overflow-hidden text-left max-w-full gap-6 mx-auto items-center'>
       <h3 className='uppercase tracking-[20px] text-gray-500 text-2xl'>Projects</h3>
 
-      <div className='flex gap-2 max-h-[150px] max-w-3xl xl:max-w-5xl mx-7 mt-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#008000]/70 pb-3'>
+      <div className='flex gap-2 max-h-[150px] max-w-[300px] sm:max-w-3xl xl:max-w-5xl mx-7 mt-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#008000]/70 pb-3'>
         {techs.map((item, idx) => {
           return (
             <Button key={idx} colorScheme='green' variant={activeFilter == item ? "outline" : "solid"} onClick={() => handleClick(item)} minWidth={"fit-content"}>

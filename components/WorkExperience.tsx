@@ -32,10 +32,10 @@ function WorkExperience({}: Props) {
   ]
 
   return (
-    <motion.div className='flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center overflow-hidden' initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.5 }}>
-      <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl'>Experience</h3>
+    <motion.div className='flex flex-col relative h-screen text-center max-w-7xl px-10 justify-center mx-auto items-center overflow-hidden' initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.5 }}>
+      <h3 className='uppercase tracking-[20px] text-gray-500 text-2xl'>Experience</h3>
 
-      <div className='w-full h-[550px] flex space-x-5 overflow-x-scroll px-10 py-5 snap-x overflow-y-hidden snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#008000]/80 xl:mt-[100px]'>
+      <div className='w-full h-[80vh] flex space-x-5 overflow-x-scroll px-10 py-5 snap-x overflow-y-hidden snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#008000]/80 '>
         <ExperienceCard companyIcon={bellIcon} companyName='Bell Canada' duration='May 2022 - Present' title='Software Developer' description={bellDescription} />
         <ExperienceCard companyIcon={yorkIcon} companyName='York University' duration='Sep 2021 - May 2022' title='Network Services Assistant' description={networkServicesDescription} />
         <ExperienceCard companyIcon={yorkIcon} companyName='York University' duration='Sep 2022 - May 2023' title='Engineering Capstone Project' description={capstoneDescription} />

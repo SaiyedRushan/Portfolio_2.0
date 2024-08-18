@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflox-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#008000]/80 scroll-smooth'>
-        <BackgroundBeams />
+        {/* <BackgroundBeams /> */}
         <Header />
 
         <section id='hero' className='snap-start'>
