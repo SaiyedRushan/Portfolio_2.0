@@ -3,7 +3,6 @@ import Link from "next/link"
 import { TypePageBlogPostSkeleton } from "../types/content-types"
 
 function BlogCard({ post, featured }: { post: TypePageBlogPostSkeleton; featured?: boolean }) {
-  console.log(post)
   return (
     <Link href={`/blogs/${post.fields.slug}`}>
       <div className={`rounded-lg  overflow-clip bg-zinc-900 text-white flex flex-col ${featured ? "justify-between sm:flex-row" : ""} space-y-3`}>
