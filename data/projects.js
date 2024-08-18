@@ -2,7 +2,7 @@ export default [
   {
     name: "Reportize AI",
     description: "Developed a comprehensive B2B SaaS application for helping teachers with creating report cards and lesson plans. Built using React.js, Node.js, Express, MongoDB, Docker, AWS, Clerk Auth, OpenAI, and Stripe.",
-    tags: "react, node, express, docker, mongo, aws",
+    tags: "react, node, express, docker, mongo, aws, live",
     git: "https://github.com/SaiyedRushan/ReportizeAI-Frontend",
     deployment: "https://reportizeai-frontend.vercel.app/dashboard",
   },
@@ -10,14 +10,14 @@ export default [
     name: "Finance Dashboard",
     description:
       "Built a full-stack finance dashboard application using Python, Django REST Framework, React, Typescript, and PostgreSQL. Hosted the frontend on Vercel and backend on Render. Implemented custom CI/CD pipelines with Github Actions. Dockerized the application and created Kubernetes manifests for production deployment. Implemented CRON jobs and asynchronous task processing with Celery, Celery Beat, and Redis",
-    tags: "python, django, docker, kubernetes, sql, redis, react, devops",
+    tags: "python, django, docker, kubernetes, sql, redis, react, devops, live",
     git: "https://github.com/SaiyedRushan/henon-dashboard",
     deployment: "https://henon-dashboard.vercel.app/",
   },
   {
     name: "Ecommerce Microservices",
     description: "Developed an ecommerce microservices backend using Python Django and Flask with MySQL, RabbitMQ for eventdriven interservice communication, and frontend with React, TypeScript, and Material UI. Containerized using Docker.",
-    tags: "python, django, flask, sql, rabbitmq, react",
+    tags: "python, django, flask, sql, rabbitmq, react, live",
     git: "https://github.com/SaiyedRushan/DjangoFlaskMicroservicesBackend",
     deployment: "https://github.com/SaiyedRushan/ReactEcommerceMicroservice",
   },
@@ -103,7 +103,7 @@ export default [
   {
     name: "Portfolio (this)",
     description: `Developed a dynamic portfolio website using Next.js, TypeScript, Tailwind CSS, and Chakra UI. Leveraged Static Site Generation (SSG) for enhanced SEO rankings and faster user experience. Integrated Contentful CMS SDK for blogging functionality. Hosted on Vercel for automated deployments.`,
-    tags: "next, tailwind, react",
+    tags: "next, tailwind, react, live",
     git: "https://github.com/SaiyedRushan/Portfolio_2.0",
     deployment: "https://saiyedrushan.vercel.app/",
   },

@@ -6,7 +6,7 @@ import { GitHub } from "@mui/icons-material"
 import VanillaTilt from "vanilla-tilt"
 
 function Projects() {
-  const techs = ["python", "java", "node", "react", "sql", "react-native", "next", "docker", "kubernetes", "aws", "golang", "c#", "mongo", "rabbitmq", "devops", "blockchain"]
+  const techs = ["live", "python", "java", "node", "react", "sql", "react-native", "next", "docker", "kubernetes", "aws", "golang", "c#", "mongo", "rabbitmq", "devops", "blockchain"]
   const [activeFilter, setActiveFilter] = useState("all")
 
   const handleClick = (item: string) => {
