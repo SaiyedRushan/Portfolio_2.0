@@ -35,13 +35,20 @@ function Projects() {
 
   return (
     <motion.div className='h-screen pt-[15vh] flex flex-col overflow-hidden text-left max-w-full gap-6 mx-auto items-center'>
-      <h3 className='uppercase tracking-[20px] text-gray-500 text-2xl'>Projects</h3>
+      <h3 className='uppercase tracking-[20px] text-gray-500 dark:text-gray-400 text-2xl'>Projects</h3>
 
       {/* filter buttons */}
       <div className='flex gap-2 max-h-[150px] max-w-[300px] sm:max-w-3xl xl:max-w-5xl mx-7 mt-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[rgb(20,83,45)]/70 pb-3'>
         {techs.map((item, idx) => {
           return (
-            <Button key={idx} colorScheme='green' variant={activeFilter == item ? 'outline' : 'solid'} onClick={() => handleClick(item)} minWidth={'fit-content'}>
+            <Button
+              key={idx}
+              colorScheme='green'
+              variant={activeFilter == item ? 'outline' : 'solid'}
+              onClick={() => handleClick(item)}
+              minWidth={'fit-content'}
+              className='text-black dark:text-white'
+            >
               {item}
             </Button>
           )
@@ -58,7 +65,7 @@ function Projects() {
                 key={idx}
                 maxWidth='300px'
                 maxHeight='340px'
-                className='project-card bg-transparent text-white xl:max-h-[600px] border-2 border-[rgb(20,83,45)]/30 hover:border-[rgb(20,83,45)] transition-all duration-300'
+                className='project-card bg-white/5 dark:bg-black/5 text-black dark:text-white xl:max-h-[600px] border-2 border-[rgb(20,83,45)]/30 hover:border-[rgb(20,83,45)] transition-all duration-300'
               >
                 {/* card header with project name */}
                 <p className='text-xl font-bold text-center pt-2 text-[rgb(20,83,45)]'>{project.name}</p>

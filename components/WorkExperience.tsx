@@ -18,11 +18,11 @@ function WorkExperience() {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
     >
-      <h3 className='uppercase tracking-[20px] text-gray-500 text-2xl'>Experience</h3>
+      <h3 className='uppercase tracking-[20px] text-gray-500 dark:text-gray-400 text-2xl'>Experience</h3>
 
-      <div className='w-full h-[80vh] flex space-x-5 overflow-x-auto px-10 py-5 snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#008000]/80'>
+      <div className='w-full h-[80vh] flex space-x-5 overflow-x-auto px-10 py-5 snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[rgb(20,83,45)]/80'>
         {workExperience.map((experience) => (
-          <div key={experience.companyName} id={experience.id} onClick={() => scrollToCard(experience.id)}>
+          <div key={experience.id} id={experience.id} onClick={() => scrollToCard(experience.id!)}>
             <ExperienceCard {...experience} />
           </div>
         ))}

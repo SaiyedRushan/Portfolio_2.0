@@ -18,7 +18,7 @@ export default [
   },
   {
     id: 'onemax',
-    companyIcon: 'https://onemax.org/wp-content/uploads/2023/04/2022-MAX-Logo-Transparent-1.png',
+    companyIcon: '/max.png',
     companyName: 'OneMAX',
     duration: 'Feb 2025 - Present',
     title: 'Senior Full Stack Engineer (Volunteer)',
