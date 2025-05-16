@@ -41,16 +41,15 @@ function Projects() {
       <div className='flex gap-2 max-h-[150px] max-w-[300px] sm:max-w-3xl xl:max-w-5xl mx-7 mt-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[rgb(20,83,45)]/70 pb-3'>
         {techs.map((item, idx) => {
           return (
-            <Button
+            <button
               key={idx}
-              colorScheme='green'
-              variant={activeFilter == item ? 'outline' : 'solid'}
               onClick={() => handleClick(item)}
-              minWidth={'fit-content'}
-              className='text-black dark:text-white'
+              className={`px-4 rounded-md transition-all duration-300 ${
+                activeFilter === item ? 'bg-[rgb(20,83,45)] text-white' : 'bg-transparent font-bold border-2 border-[rgb(20,83,45)] text-[rgb(20,83,45)] hover:bg-[rgb(20,83,45)]/10'
+              }`}
             >
               {item}
-            </Button>
+            </button>
           )
         })}
       </div>
@@ -61,22 +60,20 @@ function Projects() {
           .filter((project) => (activeFilter != 'all' ? project.tags.includes(activeFilter) : true))
           .map((project, idx) => {
             return (
-              <Card
+              <div
                 key={idx}
-                maxWidth='300px'
-                maxHeight='340px'
-                className='project-card bg-white/5 dark:bg-black/5 text-black dark:text-white xl:max-h-[600px] border-2 border-[rgb(20,83,45)]/30 hover:border-[rgb(20,83,45)] transition-all duration-300'
+                className='project-card rounded-lg bg-white/5 dark:bg-black/5 text-black dark:text-white xl:max-h-[600px] border-2 border-[rgb(20,83,45)]/30 hover:border-[rgb(20,83,45)] transition-all duration-300 max-w-[300px] max-h-[340px] flex flex-col'
               >
                 {/* card header with project name */}
                 <p className='text-xl font-bold text-center pt-2 text-[rgb(20,83,45)]'>{project.name}</p>
 
                 {/* card body with project description */}
-                <CardBody className='overflow-y-auto scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[rgb(20,83,45)]/70'>
+                <div className='overflow-y-auto scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[rgb(20,83,45)]/70 flex-1 p-4'>
                   <p className='italic'>{project.description}</p>
-                </CardBody>
+                </div>
 
                 {/* card footer with links  */}
-                <CardFooter gap='2' className='p-2' justify={'center'} borderTop={'1px solid rgb(20,83,45)/30'}>
+                <div className='p-2 flex justify-center gap-2 border-t border-[rgb(20,83,45)]/30'>
                   <a target='_blank' href={project.git}>
                     <IconButton aria-label='git' icon={<GitHub />} variant='outline' />
                   </a>
@@ -86,8 +83,8 @@ function Projects() {
                       <button className='bg-[rgb(20,83,45)] hover:bg-[rgb(20,83,45)]/90 text-white font-bold py-2 px-4 rounded'>Live</button>
                     </a>
                   )}
-                </CardFooter>
-              </Card>
+                </div>
+              </div>
             )
           })}
       </div>
