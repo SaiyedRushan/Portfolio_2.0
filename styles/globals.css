@@ -2,31 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* The page scrolls the document now, so anchor targets need to clear the
+       sticky header rather than hiding underneath it. */
+    section[id] {
+        scroll-margin-top: 5rem;
+    }
+}
+
 @layer components {
-    .heroButton {
-        @apply px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all 
-        hover:border-[rgb(20,83,45)]/40 hover:text-[rgb(20,83,45)]/40
-    }
-
     .contactInput {
-        @apply outline-none bg-slate-400/10 rounded-sm border-b px-6 py-6 border-[#242424]
-         text-gray-500 placeholder-gray-500 transition-all focus:text-[rgb(20,83,45)]/40 hover:border-[rgb(20,83,45)]/40
-    }
-
-    .card-gradient {
-        overflow: hidden;
-        color: black;
-    }
-
-    .card-gradient::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url(https://grainy-gradients.vercel.app/noise.svg);
-        opacity: 0.5; 
-        pointer-events: none;
+        @apply w-full rounded-md border border-black/10 bg-black/[0.03] px-4 py-3 text-sm text-black outline-none transition-colors
+        placeholder:text-gray-500 hover:border-brand/40 focus:border-brand focus:ring-1 focus:ring-brand/30
+        dark:border-white/10 dark:bg-white/5 dark:text-white
     }
 }

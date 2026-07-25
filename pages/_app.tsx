@@ -1,6 +1,5 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { ChakraProvider } from '@chakra-ui/react'
 import Head from 'next/head'
 import { ThemeProvider } from '../context/ThemeContext'
 
@@ -34,9 +33,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name='twitter:image' content={`${SITE_URL}/linkedin.jpg`} />
       </Head>
       <ThemeProvider>
-        <ChakraProvider>
-          <Component {...pageProps} />
-        </ChakraProvider>
+        <Component {...pageProps} />
       </ThemeProvider>
     </>
   )

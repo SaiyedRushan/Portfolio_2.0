@@ -4,6 +4,18 @@ const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenCo
 module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        // The single accent green the whole site is built on. Previously repeated as
+        // a literal rgb(20,83,45) in every component.
+        brand: {
+          DEFAULT: 'rgb(20, 83, 45)',
+          light: 'rgb(120, 180, 140)',
+        },
+      },
+    },
+  },
   plugins: [require('tailwind-scrollbar'), addVariablesForColors],
 }
 
