@@ -50,6 +50,15 @@ const projects: Project[] = [
     image: '/projects/hayya.png',
     deployment: 'https://saiyedrushan.github.io/hayya-site/',
   },
+  {
+    name: 'HadithBot',
+    description:
+      'Discord bot that posts a daily hadith and the 99 names of Allah to any server that invites it. Each channel keeps its own place in the collection — book, chapter, and name — so servers that join later start from the beginning, and ten slash commands cover random or specific lookups. Runs 24/7 in Docker on an Oracle Cloud always-free VM.',
+    tech: ['Python', 'discord.py', 'Supabase', 'Flask', 'Docker', 'Oracle Cloud'],
+    status: 'live',
+    image: '/projects/hadithbot.png',
+    deployment: 'https://saiyedrushan.github.io/HadithBot/',
+  },
 ]
 
 export default projects
