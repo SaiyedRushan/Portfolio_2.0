@@ -3,8 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import linkedin from '../public/linkedin.jpg'
 import useSound from 'use-sound'
-
-const RUSHDEVS_URL = 'https://rush-devs-eta.vercel.app'
+import { RUSHDEVS_URL } from '../lib/site'
 
 function Hero() {
   const [play] = useSound('mouse-click.wav', { volume: 0.5, playbackRate: 2 })

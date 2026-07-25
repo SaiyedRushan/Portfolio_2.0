@@ -1,24 +1,24 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { MapPinIcon, EnvelopeIcon } from '@heroicons/react/24/solid'
-import emailjs from '@emailjs/browser'
 import SectionHeading from './SectionHeading'
 
-type Props = {}
+// FormSubmit alias for rushan52@gmail.com. The address is shown on this page anyway, so the
+// alias is not hiding it — it just avoids handing scrapers a mailto-shaped endpoint. Aliases are
+// activated per-origin, so this only delivers from saiyedrushan.vercel.app.
+const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/67473f6fa20791f1c89c9310cb52920b'
 
-// EmailJS public identifiers — safe to expose client-side, but env-configurable so
-// they can be rotated without a code change.
-const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? 'service_npbnp13'
-const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? 'template_cm9oyjw'
-const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? 'nwh-NBR9iXCYookwW'
+const emptyForm = {
+  name: '',
+  email: '',
+  subject: '',
+  message: '',
+  // Honeypot: hidden from users, so anything in it means a bot. FormSubmit ignores _honey on the
+  // AJAX endpoint (verified), so handleSubmit drops these itself rather than relying on the server.
+  _honey: '',
+}
 
-function ContactMe({}: Props) {
-  const formRef = useRef<HTMLFormElement>(null)
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  })
+function ContactMe() {
+  const [form, setForm] = useState(emptyForm)
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
@@ -30,31 +30,44 @@ function ContactMe({}: Props) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Bots fill every input they find. Fake a success so they can't tell they were caught.
+    if (form._honey) {
+      setSuccess(true)
+      setForm(emptyForm)
+      return
+    }
+
     setLoading(true)
     setError('')
     setSuccess(false)
 
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          name: form.name,
-          email: form.email,
-          title: form.subject,
-          message: form.message,
-          reply_to: form.email,
-        },
-        EMAILJS_PUBLIC_KEY
-      )
-      setSuccess(true)
-      setForm({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
+      const response = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          subject: form.subject.trim(),
+          message: form.message.trim(),
+          _subject: `Portfolio contact: ${form.subject.trim()}`,
+          _replyto: form.email.trim(),
+          _template: 'table',
+        }),
       })
-    } catch (error) {
+
+      // FormSubmit answers 200 with {"success":"false"} for an unactivated or misconfigured
+      // form, so the body decides the outcome rather than the status code.
+      const result = await response.json()
+      if (!response.ok || String(result.success) !== 'true') {
+        throw new Error(result.message || `FormSubmit responded with ${response.status}`)
+      }
+
+      setSuccess(true)
+      setForm(emptyForm)
+    } catch (err) {
+      console.error('Contact form submission failed:', err)
       setError('Something went wrong sending that. Please email rushan52@gmail.com directly.')
     } finally {
       setLoading(false)
@@ -87,13 +100,23 @@ function ContactMe({}: Props) {
           </div>
         </div>
 
-        <form ref={formRef} onSubmit={handleSubmit} className='space-y-4 md:col-span-3'>
+        <form onSubmit={handleSubmit} className='space-y-4 md:col-span-3'>
+          <input type='text' name='_honey' value={form._honey} onChange={handleChange} className='hidden' tabIndex={-1} autoComplete='off' aria-hidden='true' />
+
           <div className='flex flex-col gap-4 sm:flex-row'>
-            <input type='text' name='name' value={form.name} onChange={handleChange} className='contactInput' placeholder='Name' required />
-            <input type='email' name='email' value={form.email} onChange={handleChange} className='contactInput' placeholder='Email' required />
+            <input type='text' name='name' value={form.name} onChange={handleChange} className='contactInput' placeholder='Name' maxLength={100} required />
+            <input type='email' name='email' value={form.email} onChange={handleChange} className='contactInput' placeholder='Email' maxLength={254} required />
           </div>
-          <input type='text' name='subject' value={form.subject} onChange={handleChange} className='contactInput' placeholder='Subject' required />
-          <textarea name='message' value={form.message} onChange={handleChange} className='contactInput min-h-[160px] resize-y' placeholder='Message' required />
+          <input type='text' name='subject' value={form.subject} onChange={handleChange} className='contactInput' placeholder='Subject' maxLength={150} required />
+          <textarea
+            name='message'
+            value={form.message}
+            onChange={handleChange}
+            className='contactInput min-h-[160px] resize-y'
+            placeholder='Message'
+            maxLength={5000}
+            required
+          />
           <button
             type='submit'
             disabled={loading}
