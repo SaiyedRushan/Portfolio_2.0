@@ -6,48 +6,63 @@ import useSound from 'use-sound'
 
 const RUSHDEVS_URL = 'https://rush-devs-eta.vercel.app'
 
-const NAV_LINKS = [
-  { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
-]
-
 function Hero() {
   const [play] = useSound('mouse-click.wav', { volume: 0.5, playbackRate: 2 })
 
   return (
-    <div className='h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden' id='home'>
-      <Image className='relative rounded-full h-32 w-32 mx-auto object-cover' src={linkedin} alt='profile picture' width={250} height={250} />
-      <div className='z-20'>
-        <h2 className='text-sm uppercase text-gray-500 dark:text-gray-400 pb-2 tracking-[15px]'>Senior Software Engineer</h2>
-        <h1 className='text-5xl lg:text-6xl font-semibold px-10 text-black dark:text-white'>Rushanshah Saiyed</h1>
-        <p className='max-w-2xl mx-auto mt-6 px-6 text-base sm:text-lg text-gray-600 dark:text-gray-300'>
-          I build websites, web apps, and mobile apps end-to-end — and the distributed systems behind them. Independent through{' '}
-          <a
-            href={RUSHDEVS_URL}
-            target='_blank'
-            rel='noopener noreferrer'
-            onClick={() => play()}
-            className='font-semibold text-[rgb(20,83,45)] dark:text-[rgb(120,180,140)] underline decoration-[rgb(20,83,45)]/40 underline-offset-4 hover:decoration-[rgb(20,83,45)]'
-          >
-            RushDevs
-          </a>
-          , after 4+ years shipping at enterprise scale.
-        </p>
-        <p className='mt-3 text-sm uppercase tracking-[3px] text-gray-500 dark:text-gray-400'>Afresh &middot; Speer &middot; Bell Canada</p>
+    <div id='home' className='mx-auto flex min-h-[calc(100vh-3.75rem)] max-w-4xl flex-col items-center justify-center px-6 py-20 text-center sm:px-10'>
+      <Image
+        className='h-28 w-28 rounded-full object-cover ring-1 ring-black/10 dark:ring-white/15 sm:h-32 sm:w-32'
+        src={linkedin}
+        alt='Rushanshah Saiyed'
+        width={250}
+        height={250}
+        priority
+      />
 
-        <div className='flex gap-3 justify-center items-center mt-9 mx-2'>
-          {NAV_LINKS.map(({ href, label }) => (
-            <Link key={href} href={href} onClick={() => play()}>
-              <button className='relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 hover:shadow-lg hover:opacity-60'>
-                <span className='absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[rgb(20,83,45)] opacity-50' />
-                <span className='inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full px-3 py-1 text-sm font-medium text-black dark:text-white backdrop-blur-3xl'>
-                  {label}
-                </span>
-              </button>
-            </Link>
-          ))}
+      <p className='mt-8 text-xs font-semibold uppercase tracking-[0.3em] text-brand dark:text-brand-light'>Senior Software Engineer</p>
+
+      <h1 className='mt-4 text-4xl font-bold tracking-tight text-black dark:text-white sm:text-5xl lg:text-6xl'>Rushanshah Saiyed</h1>
+
+      <p className='mt-6 max-w-2xl text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg'>
+        I build websites, web apps, and mobile apps end-to-end — and the distributed systems behind them. Independent through{' '}
+        <a
+          href={RUSHDEVS_URL}
+          target='_blank'
+          rel='noopener noreferrer'
+          onClick={() => play()}
+          className='font-semibold text-brand underline decoration-brand/40 underline-offset-4 transition-colors hover:decoration-brand dark:text-brand-light dark:decoration-brand-light/40 dark:hover:decoration-brand-light'
+        >
+          RushDevs
+        </a>
+        , after 4+ years shipping at enterprise scale.
+      </p>
+
+      <div className='mt-10 flex flex-col gap-3 sm:flex-row'>
+        <Link
+          href='#projects'
+          onClick={() => play()}
+          className='rounded-md bg-brand px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand/90'
+        >
+          View my work
+        </Link>
+        <Link
+          href='#contact'
+          onClick={() => play()}
+          className='rounded-md border border-black/15 px-6 py-3 text-sm font-semibold text-gray-800 transition-colors hover:border-brand hover:text-brand dark:border-white/20 dark:text-gray-200 dark:hover:border-brand-light dark:hover:text-brand-light'
+        >
+          Get in touch
+        </Link>
+      </div>
+
+      <div className='mt-14 flex flex-col items-center gap-3'>
+        <p className='text-[11px] uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500'>Previously</p>
+        <div className='flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-medium text-gray-500 dark:text-gray-400'>
+          <span>Afresh</span>
+          <span className='h-1 w-1 rounded-full bg-gray-300 dark:bg-gray-700' />
+          <span>Speer</span>
+          <span className='h-1 w-1 rounded-full bg-gray-300 dark:bg-gray-700' />
+          <span>Bell Canada</span>
         </div>
       </div>
     </div>

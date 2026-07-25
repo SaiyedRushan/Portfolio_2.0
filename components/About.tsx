@@ -1,34 +1,65 @@
 import React from 'react'
-import { motion } from 'framer-motion'
-import { TextGenerateEffect } from './ui/text-generate'
+import SectionHeading from './SectionHeading'
+
+const SKILLS = [
+  {
+    heading: 'Core stack',
+    items: ['TypeScript', 'React', 'Next.js', 'Node.js', 'GraphQL', 'PostgreSQL'],
+  },
+  {
+    heading: 'Systems & infrastructure',
+    items: ['Event-driven micro-services', 'Azure', 'AWS', 'Terraform', 'Docker', 'Kubernetes', 'Kafka', 'RabbitMQ', 'Redis', 'Observability'],
+  },
+  {
+    heading: 'Also comfortable with',
+    items: ['Vue.js', 'React Native', 'Python', 'Java', 'Spring Boot', 'C# .NET', 'Golang', 'MongoDB', 'CI/CD'],
+  },
+]
+
+const PARAGRAPHS = [
+  'I run RushDevs, an independent software studio building websites, web apps, and mobile apps for startups and small teams — and I build my own products under the same roof, two of them live and paid.',
+  'That follows 4+ years designing and shipping full-stack, distributed systems at Afresh, Speer, and Bell Canada, owning critical systems end-to-end from architecture through on-call operations.',
+]
 
 function About() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
-      className='flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-4 sm:px-10 justify-evenly mx-auto items-center'
-    >
-      <h3 className='absolute top-16 sm:top-24 uppercase tracking-[15px] text-gray-500 dark:text-gray-400 text-xl sm:text-2xl'>About</h3>
+    <div className='mx-auto max-w-6xl px-6 py-20 sm:px-10 sm:py-28'>
+      <SectionHeading eyebrow='About' title='A little background' />
 
-      <div className='space-y-6 sm:space-y-10 px-0 mt-16 sm:mt-10 md:px-10 max-w-3xl'>
-        <h4 className='text-2xl sm:text-4xl font-semibold text-black dark:text-white'>
-          Here is a <span className='underline decoration-[rgb(20,83,45)]/50 text-[20px] sm:text-[25px]'>little</span> background
-        </h4>
+      <div className='grid gap-12 lg:grid-cols-5 lg:gap-16'>
+        <div className='space-y-5 lg:col-span-3'>
+          {PARAGRAPHS.map((paragraph) => (
+            <p key={paragraph} className='text-base leading-relaxed text-gray-700 dark:text-gray-300 sm:text-lg'>
+              {paragraph}
+            </p>
+          ))}
 
-        <div className='text-sm sm:text-base'>
-          <TextGenerateEffect
-            className='font-semibold'
-            words={`I run RushDevs, an independent software studio building websites, web apps, and mobile apps for startups and small teams — and I build my own products under the same roof, two of them live and paid. \n That follows 4+ years designing and shipping full-stack, distributed systems at Afresh, Speer, and Bell Canada, owning critical systems end-to-end from architecture through on-call operations. \n Specialized in TypeScript, React, Next.js, Node.js, GraphQL, and PostgreSQL, with deep experience in event-driven micro-services, cloud infrastructure (Azure, AWS, Terraform), and production observability. Also comfortable across Vue.js, React Native, Python, Java, Spring Boot, C# .NET, Golang, MongoDB, Redis, Kafka, RabbitMQ, Docker, Kubernetes, and CI/CD.`}
-          />
+          <div className='rounded-lg border border-black/10 bg-white p-5 dark:border-white/10 dark:bg-[#131313]'>
+            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-brand dark:text-brand-light'>Education</p>
+            <p className='mt-2 font-semibold text-black dark:text-white'>B.Eng. Spec. Hons. Computer Engineering</p>
+            <p className='mt-1 text-sm text-gray-600 dark:text-gray-400'>York University &mdash; GPA 3.8/4.0, First Class, Dean&apos;s Honour Roll</p>
+          </div>
         </div>
 
-        <p className='text-xs sm:text-sm text-gray-500 dark:text-gray-400'>
-          B.Eng. Spec. Hons. Computer Engineering, York University &mdash; GPA 3.8/4.0, First Class, Dean&apos;s Honour Roll
-        </p>
+        <div className='space-y-6 lg:col-span-2'>
+          {SKILLS.map(({ heading, items }) => (
+            <div key={heading}>
+              <h3 className='text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400'>{heading}</h3>
+              <div className='mt-3 flex flex-wrap gap-2'>
+                {items.map((item) => (
+                  <span
+                    key={item}
+                    className='rounded-md border border-black/10 bg-white px-2.5 py-1 text-xs font-medium text-gray-700 dark:border-white/10 dark:bg-[#161616] dark:text-gray-300'
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
 

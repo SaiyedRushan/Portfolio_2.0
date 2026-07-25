@@ -1,81 +1,128 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { SocialIcon } from 'react-social-icons'
-import { motion } from 'framer-motion'
 import Link from 'next/link'
 import useSound from 'use-sound'
-import { IconButton } from '@chakra-ui/react'
-import { SunIcon, MoonIcon, HomeIcon } from '@heroicons/react/24/solid'
+import { SunIcon, MoonIcon } from '@heroicons/react/24/solid'
 import { useTheme } from '../context/ThemeContext'
+import { cn } from '../lib/utils'
+
+const RUSHDEVS_URL = 'https://rush-devs-eta.vercel.app'
+
+const NAV_LINKS = [
+  { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'contact', label: 'Contact' },
+]
+
+/** Highlights whichever section is crossing the middle of the viewport. */
+function useActiveSection() {
+  const [active, setActive] = useState('')
+
+  useEffect(() => {
+    const sections = NAV_LINKS.map(({ id }) => document.getElementById(id)).filter((el): el is HTMLElement => el !== null)
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.find((entry) => entry.isIntersecting)
+        if (visible) setActive(visible.target.id)
+      },
+      { rootMargin: '-45% 0px -50% 0px' }
+    )
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [])
+
+  return active
+}
 
 function Header() {
-  const [play] = useSound('mouse-click.wav', {
-    volume: 0.5,
-    playbackRate: 2.0,
-  })
+  const [play] = useSound('mouse-click.wav', { volume: 0.5, playbackRate: 2.0 })
   const { isDarkMode, toggleTheme } = useTheme()
+  const active = useActiveSection()
+
+  // The server can't know the stored theme, so the icon only renders after mount —
+  // otherwise the first client render disagrees with the server HTML.
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
 
   return (
-    <header className='sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center bg-transparent'>
-      <motion.div initial={{ x: -500, opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }} transition={{ duration: 1.0 }} className='flex flex-row items-center gap-3'>
-        <Link href='/#home' className=' hover:scale-125 transform transition-transform duration-300' onClick={() => play()}>
-          <HomeIcon className='w-6 h-6 fill-none stroke-2 stroke-gray-400' />
+    <header className='sticky top-0 z-50 w-full border-b border-black/5 bg-white/80 backdrop-blur-md dark:border-white/10 dark:bg-black/80'>
+      <div className='mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8'>
+        <Link href='/#hero' onClick={() => play()} className='shrink-0 text-sm font-bold tracking-tight text-black dark:text-white'>
+          Rushanshah Saiyed
         </Link>
-        <SocialIcon
-          url='https://www.linkedin.com/in/rushanshahsaiyed/'
-          fgColor='gray'
-          target='_blank'
-          bgColor='transparent'
-          className='hover:scale-125 transform transition-transform duration-300'
-          onClick={() => play()}
-        ></SocialIcon>
-        <SocialIcon
-          url='https://github.com/SaiyedRushan'
-          target='_blank'
-          fgColor='gray'
-          bgColor='transparent'
-          className=' hover:scale-125 transform transition-transform duration-300'
-          onClick={() => play()}
-        ></SocialIcon>
-        <a
-          href='https://rush-devs-eta.vercel.app'
-          target='_blank'
-          rel='noopener noreferrer'
-          onClick={() => play()}
-          className='hover:scale-110 transform transition-transform duration-300'
-        >
-          <p className='uppercase text-sm text-gray-400 p-3 hover:text-[rgb(20,83,45)] dark:hover:text-[rgb(120,180,140)]'>RushDevs</p>
-        </a>
-      </motion.div>
 
-      <motion.div
-        initial={{ x: 500, opacity: 0, scale: 0.5 }}
-        animate={{ x: 0, opacity: 1, scale: 1 }}
-        transition={{ duration: 1.0 }}
-        className='flex flex-row items-center gap-2 text-gray-300 cursor-pointer'
-      >
-        <IconButton
-          aria-label='Toggle theme'
-          title={isDarkMode ? 'Light Mode' : 'Dark Mode'}
-          icon={isDarkMode ? <SunIcon className='w-5 h-5 fill-none stroke-2 stroke-gray-400' /> : <MoonIcon className='w-5 h-5 fill-none stroke-2 stroke-gray-400' />}
-          onClick={() => {
-            toggleTheme()
-            play()
-          }}
-          variant='ghost'
-          className=' hover:bg-transparent hover:scale-125 transform transition-transform duration-300'
-        />
-        <SocialIcon
-          network='email'
-          fgColor='#9ca3af'
-          bgColor='transparent'
-          className='cursor-pointer  hover:scale-125 transform transition-transform duration-300 normal-case'
-          url='mailto:rushan52@gmail.com'
-          onClick={() => play()}
-        />
-        <Link href='/#contact' onClick={() => play()} className=' hover:scale-125 transform transition-transform duration-300 mx-4'>
-          <p className='uppercase hidden md:inline-flex text-sm text-gray-400'>Get in touch</p>
-        </Link>
-      </motion.div>
+        <nav className='hidden items-center gap-1 md:flex'>
+          {NAV_LINKS.map(({ id, label }) => (
+            <Link
+              key={id}
+              href={`#${id}`}
+              onClick={() => play()}
+              className={cn(
+                'rounded-md px-3 py-1.5 text-sm font-medium transition-colors',
+                active === id
+                  ? 'text-brand dark:text-brand-light'
+                  : 'text-gray-600 hover:text-brand dark:text-gray-400 dark:hover:text-brand-light'
+              )}
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className='flex items-center gap-1'>
+          <a
+            href={RUSHDEVS_URL}
+            target='_blank'
+            rel='noopener noreferrer'
+            onClick={() => play()}
+            className='hidden px-2 text-sm font-medium text-gray-600 transition-colors hover:text-brand dark:text-gray-400 dark:hover:text-brand-light sm:inline'
+          >
+            RushDevs
+          </a>
+
+          <SocialIcon
+            url='https://www.linkedin.com/in/rushanshahsaiyed/'
+            fgColor='currentColor'
+            target='_blank'
+            bgColor='transparent'
+            style={{ height: 34, width: 34 }}
+            className='text-gray-500 transition-colors hover:text-brand dark:hover:text-brand-light'
+            onClick={() => play()}
+          />
+          <SocialIcon
+            url='https://github.com/SaiyedRushan'
+            target='_blank'
+            fgColor='currentColor'
+            bgColor='transparent'
+            style={{ height: 34, width: 34 }}
+            className='text-gray-500 transition-colors hover:text-brand dark:hover:text-brand-light'
+            onClick={() => play()}
+          />
+
+          <button
+            type='button'
+            aria-label='Toggle colour theme'
+            onClick={() => {
+              toggleTheme()
+              play()
+            }}
+            className='ml-1 flex h-9 w-9 items-center justify-center rounded-md text-gray-500 transition-colors hover:bg-black/5 hover:text-brand dark:hover:bg-white/10 dark:hover:text-brand-light'
+          >
+            {mounted ? isDarkMode ? <SunIcon className='h-5 w-5' /> : <MoonIcon className='h-5 w-5' /> : <span className='h-5 w-5' />}
+          </button>
+
+          <Link
+            href='#contact'
+            onClick={() => play()}
+            className='ml-1 hidden rounded-md bg-brand px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand/90 sm:inline-block'
+          >
+            Get in touch
+          </Link>
+        </div>
+      </div>
     </header>
   )
 }

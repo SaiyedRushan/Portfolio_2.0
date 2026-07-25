@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { MapPinIcon, EnvelopeIcon } from '@heroicons/react/24/solid'
 import emailjs from '@emailjs/browser'
+import SectionHeading from './SectionHeading'
 
 type Props = {}
 
@@ -61,42 +62,48 @@ function ContactMe({}: Props) {
   }
 
   return (
-    <div className='min-h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-4 sm:px-10 justify-evenly mx-auto items-center'>
-      <h3 className='absolute top-16 sm:top-24 uppercase tracking-[20px] text-gray-500 text-xl sm:text-2xl'>Contact</h3>
+    <div className='mx-auto max-w-5xl px-6 py-20 sm:px-10 sm:py-28'>
+      <SectionHeading eyebrow='Contact' title='Let’s talk' subtitle='Have a project in mind, or just want to say hello? Drop me a message.' />
 
-      <div className='flex flex-col space-y-4 sm:space-y-5 mt-20 sm:mt-9 w-full max-w-2xl'>
-        <h4 className='text-xl sm:text-2xl font-semibold text-center'>
-          <span className='decoration-[rgb(20,83,45)] underline'>Lets talk.</span>
-        </h4>
+      <div className='grid gap-10 md:grid-cols-5 md:gap-12'>
+        <div className='space-y-4 md:col-span-2'>
+          <a
+            href='mailto:rushan52@gmail.com'
+            className='flex items-center gap-4 rounded-lg border border-black/10 p-4 transition-colors hover:border-brand/40 dark:border-white/10'
+          >
+            <EnvelopeIcon className='h-6 w-6 shrink-0 text-brand dark:text-brand-light' />
+            <div className='min-w-0'>
+              <p className='text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400'>Email</p>
+              <p className='truncate text-sm font-medium text-black dark:text-white'>rushan52@gmail.com</p>
+            </div>
+          </a>
 
-        <div className='space-y-3 sm:space-y-5'>
-          <div className='flex items-center space-x-3 sm:space-x-5 justify-center'>
-            <EnvelopeIcon className='text-[rgb(20,83,45)] dark:text-[rgb(120,180,140)] h-6 w-6 sm:h-7 sm:w-7' />
-            <p className='text-lg sm:text-2xl'> rushan52@gmail.com </p>
-          </div>
-          <div className='flex items-center space-x-3 sm:space-x-5 justify-center'>
-            <MapPinIcon className='text-[rgb(20,83,45)] dark:text-[rgb(120,180,140)] h-6 w-6 sm:h-7 sm:w-7' />
-            <p className='text-lg sm:text-2xl'> Toronto, ON </p>
+          <div className='flex items-center gap-4 rounded-lg border border-black/10 p-4 dark:border-white/10'>
+            <MapPinIcon className='h-6 w-6 shrink-0 text-brand dark:text-brand-light' />
+            <div>
+              <p className='text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400'>Location</p>
+              <p className='text-sm font-medium text-black dark:text-white'>Toronto, ON</p>
+            </div>
           </div>
         </div>
 
-        <form ref={formRef} onSubmit={handleSubmit} className='flex flex-col space-y-3 sm:space-y-4 w-full sm:w-fit mx-auto px-4 sm:px-0'>
-          <div className='flex flex-col sm:flex-row sm:space-x-2 w-full gap-3 sm:gap-2'>
-            <input type='text' name='name' value={form.name} onChange={handleChange} className='contactInput w-full' placeholder='Name' required />
-            <input type='email' name='email' value={form.email} onChange={handleChange} className='contactInput w-full' placeholder='Email' required />
+        <form ref={formRef} onSubmit={handleSubmit} className='space-y-4 md:col-span-3'>
+          <div className='flex flex-col gap-4 sm:flex-row'>
+            <input type='text' name='name' value={form.name} onChange={handleChange} className='contactInput' placeholder='Name' required />
+            <input type='email' name='email' value={form.email} onChange={handleChange} className='contactInput' placeholder='Email' required />
           </div>
-          <input type='text' name='subject' value={form.subject} onChange={handleChange} className='contactInput w-full' placeholder='Subject' required />
-          <textarea name='message' value={form.message} onChange={handleChange} className='contactInput w-full min-h-[150px]' placeholder='Message' required />
+          <input type='text' name='subject' value={form.subject} onChange={handleChange} className='contactInput' placeholder='Subject' required />
+          <textarea name='message' value={form.message} onChange={handleChange} className='contactInput min-h-[160px] resize-y' placeholder='Message' required />
           <button
             type='submit'
             disabled={loading}
-            className='bg-[rgb(20,83,45)] py-3 sm:py-5 px-8 sm:px-10 rounded-md text-white font-bold text-base sm:text-lg hover:bg-[rgb(20,83,45)]/90 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+            className='w-full rounded-md bg-brand px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand/90 disabled:cursor-not-allowed disabled:opacity-50'
           >
-            {loading ? 'Sending...' : 'Submit'}
+            {loading ? 'Sending…' : 'Send message'}
           </button>
 
-          {success && <p className='text-green-500 text-center'>Message sent successfully!</p>}
-          {error && <p className='text-red-500 text-center'>{error}</p>}
+          {success && <p className='text-center text-sm text-brand dark:text-brand-light'>Message sent successfully.</p>}
+          {error && <p className='text-center text-sm text-red-500'>{error}</p>}
         </form>
       </div>
     </div>
