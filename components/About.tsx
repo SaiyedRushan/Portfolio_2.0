@@ -20,9 +20,13 @@ function About() {
         <div className='text-sm sm:text-base'>
           <TextGenerateEffect
             className='font-semibold'
-            words={`Experienced challenge hungry senior full stack software engineer adept in end-to-end development and project delivery from initial concept to final deployment, complemented by a strong ability to lead teams and projects and deliver high-quality user-centric solutions. \n Expertise in JavaScript, TypeScript, Vue.js, Vite, React.js, React Native, Python, Django, Flask, Spring Boot, Java, Golang, Next.js, Node.js, Express, Openshift, SQL Server, MongoDB, GraphQL, Jest, Docker, Kubernetes, RabbitMQ, Git. \n Familiar with microservices architecture. Additional expertise in backend development, DevOps practices, and cloud deployment and migration, including AWS, GCP, Terraform, and Linux`}
+            words={`I run RushDevs, an independent software studio building websites, web apps, and mobile apps for startups and small teams — and I build my own products under the same roof, two of them live and paid. \n That follows 4+ years designing and shipping full-stack, distributed systems at Afresh, Speer, and Bell Canada, owning critical systems end-to-end from architecture through on-call operations. \n Specialized in TypeScript, React, Next.js, Node.js, GraphQL, and PostgreSQL, with deep experience in event-driven micro-services, cloud infrastructure (Azure, AWS, Terraform), and production observability. Also comfortable across Vue.js, React Native, Python, Java, Spring Boot, C# .NET, Golang, MongoDB, Redis, Kafka, RabbitMQ, Docker, Kubernetes, and CI/CD.`}
           />
         </div>
+
+        <p className='text-xs sm:text-sm text-gray-500 dark:text-gray-400'>
+          B.Eng. Spec. Hons. Computer Engineering, York University &mdash; GPA 3.8/4.0, First Class, Dean&apos;s Honour Roll
+        </p>
       </div>
     </motion.div>
   )

@@ -9,7 +9,7 @@ import { useTheme } from '../context/ThemeContext'
 
 function Header() {
   const [play] = useSound('mouse-click.wav', {
-    volume: 0.1,
+    volume: 0.5,
     playbackRate: 2.0,
   })
   const { isDarkMode, toggleTheme } = useTheme()
@@ -17,7 +17,7 @@ function Header() {
   return (
     <header className='sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center bg-transparent'>
       <motion.div initial={{ x: -500, opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }} transition={{ duration: 1.0 }} className='flex flex-row items-center gap-3'>
-        <Link href='/#home' className=' hover:scale-125 transform transition-transform duration-300' onMouseEnter={() => play()}>
+        <Link href='/#home' className=' hover:scale-125 transform transition-transform duration-300' onClick={() => play()}>
           <HomeIcon className='w-6 h-6 fill-none stroke-2 stroke-gray-400' />
         </Link>
         <SocialIcon
@@ -26,7 +26,7 @@ function Header() {
           target='_blank'
           bgColor='transparent'
           className='hover:scale-125 transform transition-transform duration-300'
-          onMouseEnter={() => play()}
+          onClick={() => play()}
         ></SocialIcon>
         <SocialIcon
           url='https://github.com/SaiyedRushan'
@@ -34,11 +34,17 @@ function Header() {
           fgColor='gray'
           bgColor='transparent'
           className=' hover:scale-125 transform transition-transform duration-300'
-          onMouseEnter={() => play()}
+          onClick={() => play()}
         ></SocialIcon>
-        <Link href='/blogs' className=' hover:scale-125 transform transition-transform duration-300' onMouseEnter={() => play()}>
-          <p className='uppercase text-sm text-gray-400 p-3'>Blog</p>
-        </Link>
+        <a
+          href='https://rush-devs-eta.vercel.app'
+          target='_blank'
+          rel='noopener noreferrer'
+          onClick={() => play()}
+          className='hover:scale-110 transform transition-transform duration-300'
+        >
+          <p className='uppercase text-sm text-gray-400 p-3 hover:text-[rgb(20,83,45)] dark:hover:text-[rgb(120,180,140)]'>RushDevs</p>
+        </a>
       </motion.div>
 
       <motion.div
@@ -64,9 +70,9 @@ function Header() {
           bgColor='transparent'
           className='cursor-pointer  hover:scale-125 transform transition-transform duration-300 normal-case'
           url='mailto:rushan52@gmail.com'
-          onMouseEnter={() => play()}
+          onClick={() => play()}
         />
-        <Link href='/#contact' onMouseEnter={() => play()} className=' hover:scale-125 transform transition-transform duration-300 mx-4'>
+        <Link href='/#contact' onClick={() => play()} className=' hover:scale-125 transform transition-transform duration-300 mx-4'>
           <p className='uppercase hidden md:inline-flex text-sm text-gray-400'>Get in touch</p>
         </Link>
       </motion.div>

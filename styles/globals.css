@@ -5,12 +5,12 @@
 @layer components {
     .heroButton {
         @apply px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all 
-        hover:border-[#008000]/40 hover:text-[#008000]/40
+        hover:border-[rgb(20,83,45)]/40 hover:text-[rgb(20,83,45)]/40
     }
 
     .contactInput {
         @apply outline-none bg-slate-400/10 rounded-sm border-b px-6 py-6 border-[#242424]
-         text-gray-500 placeholder-gray-500 transition-all focus:text-[#008000]/40 hover:border-[#008000]/40
+         text-gray-500 placeholder-gray-500 transition-all focus:text-[rgb(20,83,45)]/40 hover:border-[rgb(20,83,45)]/40
     }
 
     .card-gradient {
