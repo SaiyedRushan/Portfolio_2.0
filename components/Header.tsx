@@ -49,27 +49,29 @@ function Header() {
   return (
     <header className='sticky top-0 z-50 w-full border-b border-black/5 bg-white/80 backdrop-blur-md dark:border-white/10 dark:bg-black/80'>
       <div className='mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8'>
-        <Link href='/#hero' onClick={() => play()} className='shrink-0 text-sm font-bold tracking-tight text-black dark:text-white'>
-          Rushanshah Saiyed
-        </Link>
+        <div className='flex items-center gap-6'>
+          <Link href='/#hero' onClick={() => play()} className='shrink-0 text-sm font-bold tracking-tight text-black dark:text-white'>
+            Rushanshah Saiyed
+          </Link>
 
-        <nav className='hidden items-center gap-1 md:flex'>
-          {NAV_LINKS.map(({ id, label }) => (
-            <Link
-              key={id}
-              href={`#${id}`}
-              onClick={() => play()}
-              className={cn(
-                'rounded-md px-3 py-1.5 text-sm font-medium transition-colors',
-                active === id
-                  ? 'text-brand dark:text-brand-light'
-                  : 'text-gray-600 hover:text-brand dark:text-gray-400 dark:hover:text-brand-light'
-              )}
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
+          <nav className='hidden items-center gap-1 md:flex'>
+            {NAV_LINKS.map(({ id, label }) => (
+              <Link
+                key={id}
+                href={`#${id}`}
+                onClick={() => play()}
+                className={cn(
+                  'rounded-md px-3 py-1.5 text-sm font-medium transition-colors',
+                  active === id
+                    ? 'text-brand dark:text-brand-light'
+                    : 'text-gray-600 hover:text-brand dark:text-gray-400 dark:hover:text-brand-light'
+                )}
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
+        </div>
 
         <div className='flex items-center gap-1'>
           <a
