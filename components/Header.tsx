@@ -5,8 +5,7 @@ import useSound from 'use-sound'
 import { SunIcon, MoonIcon } from '@heroicons/react/24/solid'
 import { useTheme } from '../context/ThemeContext'
 import { cn } from '../lib/utils'
-
-const RUSHDEVS_URL = 'https://rush-devs-eta.vercel.app'
+import { RUSHDEVS_URL } from '../lib/site'
 
 const NAV_LINKS = [
   { id: 'about', label: 'About' },
