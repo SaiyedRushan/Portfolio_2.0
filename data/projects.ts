@@ -48,6 +48,7 @@ const projects: Project[] = [
     tech: ['React Native', 'Expo', 'TypeScript', 'Notifee', 'zustand', 'adhan'],
     status: 'in-development',
     image: '/projects/hayya.png',
+    deployment: 'https://saiyedrushan.github.io/hayya-site/',
   },
 ]
 
