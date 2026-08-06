@@ -57,7 +57,7 @@ const projects: Project[] = [
     tech: ['Python', 'discord.py', 'Supabase', 'Flask', 'Docker', 'Oracle Cloud'],
     status: 'live',
     image: '/projects/hadithbot.png',
-    deployment: 'https://saiyedrushan.github.io/HadithBot/',
+    deployment: 'https://hadithbot.app',
   },
 ]
 
