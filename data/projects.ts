@@ -16,11 +16,21 @@ const projects: Project[] = [
     name: 'MugUp',
     role: 'Founder',
     description:
-      'AI-powered study tool that turns any topic into quizzes, flashcards, and matching games in seconds — active recall without the busywork. I run it as a product: content generation, subscriptions, billing, and infrastructure are all mine. Self-hosted rather than serverless to keep unit costs flat as usage grows.',
+      'Turns showing up for yourself into a game — AI-built quizzes and flashcards with spaced repetition, plus reading, writing, speaking, and habit streaks, all scored as six real-life stats on a daily Life Card. I run it as a product: content generation, subscriptions, billing, and infrastructure are all mine. Self-hosted rather than serverless to keep unit costs flat as usage grows.',
     tech: ['Next.js', 'TypeScript', 'Supabase', 'Stripe', 'Gemini AI', 'Hetzner'],
     status: 'live',
     image: '/projects/mugup.png',
-    deployment: 'https://beta.mugup.app',
+    deployment: 'https://mugup.app',
+  },
+  {
+    name: 'ManyMin',
+    role: 'Founder',
+    description:
+      'macOS screen-time tracker that samples the frontmost app once a second and splits browser time by website, shown live in a floating HUD and the menu bar. Daily goals and per-app limits, and going over can pulse the HUD or turn the whole screen grayscale. No account and no sync — everything stays in a local SQLite database. Sold as a $29 one-time purchase through Stripe, signed and notarized.',
+    tech: ['Swift', 'SwiftUI', 'AppKit', 'SQLite', 'Sparkle', 'Stripe'],
+    status: 'live',
+    image: '/projects/manymin.png',
+    deployment: 'https://manymin.app',
   },
   {
     name: 'EasyReports',
@@ -46,7 +56,7 @@ const projects: Project[] = [
     description:
       'Mobile app that turns Muslim prayer times into insistent, call-style alarms — a full-screen "incoming call" UI with themed ringtones, streak tracking, and a written-reason flow for declining. Exact-alarm scheduling and full-screen lock-screen intents on Android, time-sensitive notifications on iOS.',
     tech: ['React Native', 'Expo', 'TypeScript', 'Notifee', 'zustand', 'adhan'],
-    status: 'in-development',
+    status: 'live',
     image: '/projects/hayya.png',
     deployment: 'https://saiyedrushan.github.io/hayya-site/',
   },

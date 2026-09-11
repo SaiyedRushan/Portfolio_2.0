@@ -18,7 +18,7 @@ const workExperience: Experience[] = [
     tagline: 'Independent software studio — web, mobile, and the systems behind them',
     description: [
       'Work with startups and small teams end-to-end: scoping the problem, designing the architecture, shipping the product, and running it in production afterwards.',
-      'Build and operate my own products under the same roof — MugUp and EasyReports are live and paid, with Learn Quran and Hayya in active development.',
+      'Build and operate my own products under the same roof — MugUp, ManyMin, and EasyReports are live and paid, with Learn Quran on the web and Hayya on the App Store.',
       'Bring the same stack I ran at enterprise scale to smaller teams: TypeScript, React, Next.js, Node.js, and PostgreSQL, on cloud infrastructure provisioned as code.',
       'Handle the full delivery path — CI/CD, observability, and cloud cost management — so clients get a product that stays maintainable after handover.',
     ],

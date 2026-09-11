@@ -17,7 +17,7 @@ const SKILLS = [
 ]
 
 const PARAGRAPHS = [
-  'I run RushDevs, an independent software studio building websites, web apps, and mobile apps for startups and small teams — and I build my own products under the same roof, two of them live and paid.',
+  'I run RushDevs, an independent software studio building websites, web apps, and mobile apps for startups and small teams — and I build my own products under the same roof, three of them live and paid.',
   'That follows 4+ years designing and shipping full-stack, distributed systems at Afresh, Speer, and Bell Canada, owning critical systems end-to-end from architecture through on-call operations.',
 ]
 
