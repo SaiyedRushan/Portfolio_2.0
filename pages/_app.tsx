@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from '../context/ThemeContext'
+import { Analytics } from '@vercel/analytics/react'
 
 const SITE_URL = 'https://saiyedrushan.vercel.app'
 const TITLE = 'Rushanshah Saiyed — Senior Software Engineer'
@@ -35,6 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <ThemeProvider>
         <Component {...pageProps} />
       </ThemeProvider>
+      <Analytics />
     </>
   )
 }
