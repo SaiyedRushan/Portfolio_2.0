@@ -58,7 +58,7 @@ const projects: Project[] = [
     tech: ['React Native', 'Expo', 'TypeScript', 'Notifee', 'zustand', 'adhan'],
     status: 'live',
     image: '/projects/hayya.png',
-    deployment: 'https://saiyedrushan.github.io/hayya-site/',
+    deployment: 'https://hayyaprayer.com/',
   },
   {
     name: 'HadithBot',
